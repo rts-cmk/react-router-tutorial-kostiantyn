@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route, Link, useNavigate } from "react-router-dom";
+import "./App.css"
 
 function ReactRouter() {
   const navigate = useNavigate()
@@ -24,7 +25,7 @@ function ReactRouter() {
           <pre className="code">{`yarn add react-router-dom`}</pre>
         </li>
         <li>
-          <p>Efter installationen kan du tjekke <span className="fil">package.json</span>. Der skal stå:</p>
+          <p>Efter installationen kan du tjekke <code className="fil">package.json</code>. Der skal stå:</p>
           <pre className="code">
             {`"dependencies": {"react-router-dom": "^7.x.x"}`}
           </pre>
@@ -46,19 +47,33 @@ function Komponenter() {
       <li>
         <h2>BrowserRouter</h2>
         <p>BrowserRouter er en “wrapper” for hele dit React-app. Den holder styr på URL’en i browseren og sørger for, at de rigtige komponenter bliver vist, når URL’en ændres.</p>
+        <pre className="code">{`import { BrowserRouter } from "react-router-dom";
+
+function App() {
+  return (
+    <BrowserRouter>
+      {/* resten af appen */}
+    </BrowserRouter>
+  );
+}`}</pre>
       </li>
       <li>
         <h2>Routes</h2>
-        <p> <pre className="fil">{`<Routes>`}</pre> er en container for alle dine <pre className="fil">{`<Route>`}</pre>-elementer. Den fortæller React Router, “her er alle de mulige ruter, vi kan vise”.</p>
-        
+        <p> <code className="fil">{`<Routes>`}</code> er en container for alle dine <code className="fil">{`<Route>`}</code>-elementer. Den fortæller React Router, “her er alle de mulige ruter, vi kan vise”.</p>
+        <pre className="code">{`<Routes>
+  <Route path="/" element={<Home />} />
+  <Route path="/about" element={<About />} />
+</Routes>`}</pre>
       </li>
       <li>
         <h2>Route</h2>
-        <p> <pre className="fil">{`<Route>`}</pre> definerer en specifik “vej” i appen og hvilken komponent, der skal vises, når den sti (path) matches.</p>
+        <p> <code className="fil">{`<Route>`}</code> definerer en specifik “vej” i appen og hvilken komponent, der skal vises, når den sti (path) matches.</p>
+        <pre className="code">{`<Route path="/contact" element={<Contact />} />`}</pre>
       </li>
       <li>
         <h2>Link</h2>
-        <p> <pre className="fil">{`<Link>`}</pre> er som et normalt HTML <pre className="fil">{`<a>`}</pre>-tag, men den ændrer URL uden at genindlæse siden, hvilket er vigtigt for Single Page Applications.</p>
+        <p> <code className="fil">{`<Link>`}</code> er som et normalt HTML <code className="fil">{`<a>`}</code>-tag, men den ændrer URL uden at genindlæse siden, hvilket er vigtigt for Single Page Applications.</p>
+        <pre className="code">{`<Link to="/about">Om os</Link>`}</pre>
       </li>
     </ul>
   )
@@ -69,17 +84,33 @@ function Navigate() {
     <article>
       <h2>useNavigate</h2>
       <p>Et hook (funktion), som bruges i din kode til at navigere programmatisk (altså med JavaScript).</p>
+      <pre className="code">{`
+import { useNavigate } from "react-router-dom";
+
+function Login() {
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    // fx efter login
+    navigate("/dashboard");
+  };
+
+  return <button onClick={handleLogin}>Log ind</button>;
+}`}</pre>
     </article>
   )
 }
 
 function Navbar() {
   return (
-    <nav>
-      <Link to="/">React Router</Link>
-      <Link to="/komponenter">Komponenter</Link>
-      <Link to="/navigate">Navigate</Link>
-    </nav>
+    <header className="header">
+      <nav>
+        <Link className="link" to="/">React Router</Link>
+        <Link className="link" to="/komponenter">Komponenter</Link>
+        <Link className="link" to="/navigate">Navigate</Link>
+      </nav>
+      <hr />
+    </header>
   )
 }
 
