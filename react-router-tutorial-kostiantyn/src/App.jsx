@@ -29,7 +29,7 @@ function ReactRouter() {
         </li>
         <li>
           <p>I dit React-projekt kan du nu importere komponenter fra React Router:</p>
-          <p className="code">import {"{ BrowserRouter, Routes, Route, Link, useNavigate }"} from "react-router-dom";</p>
+          <p className="code">import {"{ BrowserRouter, Routes, Route, Link }"} from "react-router-dom";</p>
         </li>
       </ul>
 
@@ -40,13 +40,33 @@ function ReactRouter() {
 
 function Komponenter() {
   return (
-    <h1>d</h1>
+    <ul>
+      <li>
+        <h2>BrowserRouter</h2>
+        <p>BrowserRouter er en “wrapper” for hele dit React-app. Den holder styr på URL’en i browseren og sørger for, at de rigtige komponenter bliver vist, når URL’en ændres.</p>
+      </li>
+      <li>
+        <h2>Routes</h2>
+        <p> <span className="fil">{"<Routes>"}</span> er en container for alle dine <span className="fil">{"<Route>"}</span>-elementer. Den fortæller React Router, “her er alle de mulige ruter, vi kan vise”.</p>
+      </li>
+      <li>
+        <h2>Route</h2>
+        <p> <span className="fil">{"<Route>"}</span> definerer en specifik “vej” i appen og hvilken komponent, der skal vises, når den sti (path) matches.</p>
+      </li>
+      <li>
+        <h2>Link</h2>
+        <p> <span className="fil">{"<Link>"}</span> er som et normalt HTML <span className="fil">{"<a>"}</span>-tag, men den ændrer URL uden at genindlæse siden, hvilket er vigtigt for Single Page Applications.</p>
+      </li>
+    </ul>
   )
 }
 
-function Contact() {
+function Navigate() {
   return (
-    <h1>Kontakt side</h1>
+    <article>
+      <h2>useNavigate</h2>
+      <p>Et hook (funktion), som bruges i din kode til at navigere programmatisk (altså med JavaScript).</p>
+    </article>
   )
 }
 
@@ -55,7 +75,7 @@ function Navbar() {
     <nav>
       <Link to="/">React Router</Link>
       <Link to="/komponenter">Komponenter</Link>
-      <Link to="/contact">Kontakt</Link>
+      <Link to="/navigate">Navigate</Link>
     </nav>
   )
 }
@@ -69,7 +89,7 @@ function App() {
       <Routes>
         <Route path="/" element={<ReactRouter />} />
         <Route path="/komponenter" element={<Komponenter />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/navigate" element={<Navigate />} />
       </Routes>
     </BrowserRouter>
   )
