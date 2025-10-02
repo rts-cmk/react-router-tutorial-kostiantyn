@@ -15,21 +15,23 @@ function ReactRouter() {
       <ul>
         <li>
           <p>Hvis du ikke allerede har et projekt, kan du oprette et med Vite:</p>
-          <p className="code">npm create vite@latest</p>
+          <pre className="code">{`npm create vite@latest`}</pre>
         </li>
         <li>
           <p>I projektmappen skriver du:</p>
-          <p className="code">npm install react-router-dom</p>
+          <pre className="code">{`npm install react-router-dom`}</pre>
           <p>eller med yarn:</p>
-          <p className="code">yarn add react-router-dom</p>
+          <pre className="code">{`yarn add react-router-dom`}</pre>
         </li>
         <li>
           <p>Efter installationen kan du tjekke <span className="fil">package.json</span>. Der skal stå:</p>
-          <p className="code">"dependencies": {"{ react-router-dom: ^7.x.x }"}</p>
+          <pre className="code">
+            {`"dependencies": {"react-router-dom": "^7.x.x"}`}
+          </pre>
         </li>
         <li>
           <p>I dit React-projekt kan du nu importere komponenter fra React Router:</p>
-          <p className="code">import {"{ BrowserRouter, Routes, Route, Link }"} from "react-router-dom";</p>
+          <pre className="code">import {`{ BrowserRouter, Routes, Route, Link }`} from "react-router-dom";</pre>
         </li>
       </ul>
 
@@ -47,15 +49,16 @@ function Komponenter() {
       </li>
       <li>
         <h2>Routes</h2>
-        <p> <span className="fil">{"<Routes>"}</span> er en container for alle dine <span className="fil">{"<Route>"}</span>-elementer. Den fortæller React Router, “her er alle de mulige ruter, vi kan vise”.</p>
+        <p> <pre className="fil">{`<Routes>`}</pre> er en container for alle dine <pre className="fil">{`<Route>`}</pre>-elementer. Den fortæller React Router, “her er alle de mulige ruter, vi kan vise”.</p>
+        
       </li>
       <li>
         <h2>Route</h2>
-        <p> <span className="fil">{"<Route>"}</span> definerer en specifik “vej” i appen og hvilken komponent, der skal vises, når den sti (path) matches.</p>
+        <p> <pre className="fil">{`<Route>`}</pre> definerer en specifik “vej” i appen og hvilken komponent, der skal vises, når den sti (path) matches.</p>
       </li>
       <li>
         <h2>Link</h2>
-        <p> <span className="fil">{"<Link>"}</span> er som et normalt HTML <span className="fil">{"<a>"}</span>-tag, men den ændrer URL uden at genindlæse siden, hvilket er vigtigt for Single Page Applications.</p>
+        <p> <pre className="fil">{`<Link>`}</pre> er som et normalt HTML <pre className="fil">{`<a>`}</pre>-tag, men den ændrer URL uden at genindlæse siden, hvilket er vigtigt for Single Page Applications.</p>
       </li>
     </ul>
   )
