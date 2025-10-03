@@ -118,14 +118,12 @@ function Navbar() {
 function App() {
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="react-router-tutorial-kostiantyn">
       <Navbar />
       <Routes>
-        <Route path="/react-router-tutorial-kostiantyn">
           <Route path="/" element={<ReactRouter />} />
           <Route path="/komponenter" element={<Komponenter />} />
           <Route path="/navigate" element={<Navigate />} />
-        </Route>
       </Routes>
     </BrowserRouter>
   )
